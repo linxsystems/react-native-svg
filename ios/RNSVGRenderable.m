@@ -6,7 +6,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTPointerEvents.h>
 #import "RNSVGRenderable.h"
 #import "RNSVGClipPath.h"
 #import "RNSVGMask.h"
@@ -519,7 +518,7 @@ UInt32 saturate(CGFloat value) {
         return nil;
     }
 
-    BOOL canReceiveTouchEvents = (self.pointerEvents != RCTPointerEventsNone && ![self isHidden]);
+    BOOL canReceiveTouchEvents = (([self isUserInteractionEnabled] || self.responsible) && ![self isHidden]);
     if(!canReceiveTouchEvents) {
       return nil;
     }
