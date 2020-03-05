@@ -518,11 +518,6 @@ UInt32 saturate(CGFloat value) {
         return nil;
     }
 
-    BOOL canReceiveTouchEvents = (([self isUserInteractionEnabled] || self.responsible) && ![self isHidden]);
-    if(!canReceiveTouchEvents) {
-      return nil;
-    }
-
     if (self.active) {
         if (!event) {
             self.active = NO;
